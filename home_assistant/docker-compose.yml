@@ -1,0 +1,18 @@
+version: '3.0'
+
+services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:2023.3.5
+    container_name: homeassistant
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - ./config:/config
+#    ports:
+#      - 8123:8123 #optional
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    restart: unless-stopped

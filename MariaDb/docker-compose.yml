@@ -1,0 +1,18 @@
+version: '2.4'
+services:
+
+  mariadb:
+    image: tobi312/rpi-mariadb:10.6-alpine
+    container_name: mariadb
+    restart: unless-stopped
+    volumes:
+      - ./mariadb-data:/var/lib/mysql:rw
+    environment:
+      TZ: Europe/Berlin
+      #MARIADB_RANDOM_ROOT_PASSWORD: "yes"
+      MARIADB_ROOT_PASSWORD: my-secret-pw
+      MARIADB_DATABASE: user-database
+      MARIADB_USER: jhlubucek
+      MARIADB_PASSWORD: kokos1
+    ports:
+      - 3306:3306

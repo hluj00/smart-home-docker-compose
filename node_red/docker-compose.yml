@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  node-red:
+    build:
+      context: .
+    environment:
+      - TZ=Europe/Prague
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./data:/data
